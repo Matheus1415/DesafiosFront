@@ -1,173 +1,52 @@
 
 # Documentação: Desafio Lista de Compras
 
-Este documento descreve a implementação de uma aplicação web simples para criar uma lista de compras. A aplicação permite que o usuário adicione itens à lista e visualize os itens adicionados. A aplicação utiliza HTML para a estrutura, CSS para a estilização (opcional), e JavaScript para a lógica
+Este documento descreve a implementação de uma aplicação web simples para criar uma single page.
 
 # Estrutura do Projeto
 O projeto consiste em três arquivos principais:
 
 - index.html - Estrutura HTML da aplicação.
 - styles.css - Estilização opcional com CSS.
-- script.js - Lógica em JavaScript.
 
+---
 
-1. HTML (index.html)
-O HTML define a estrutura básica da aplicação. Inclui um campo de entrada para os itens da lista, um botão para adicionar itens, e uma lista não ordenada para exibir os itens.
+Neste desafio de HTML, é necessário adicionar o conteúdo e as classes apropriadas nos lugares corretos, conforme o layout especificado no seguinte link: [Figma Layout](https://www.figma.com/design/YI96h8KxrNgwaCSMyhvtkB/mentoria-02?node-id=2-3&t=X67fSym8NUqrqz91-1). Este layout servirá como guia para a estrutura visual e a organização dos elementos.
 
-``` html
-        <!DOCTYPE html>
-    <html lang="pt-BR">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Lista de Compras</title>
-    </head>
-    <body>
-        <div>
-            <h1>Lista de Compras</h1>
-            <input type="text" id="itemInput" placeholder="Novo item">
-            <button id="addItemBtn">Adicionar Item</button>
-            <ul id="shoppingList"></ul>
-        </div>
-        <script src="script.js"></script>
-    </body>
-    </html>
-```
-### Explicação das funcionalidade do html
+### Sugestões de melhorias:
 
-```html
-    Explicação dos Elementos HTML
-    <input type="text" id="itemInput" placeholder="Novo item">: Campo de texto onde o usuário pode digitar o item a ser adicionado.
-    <button id="addItemBtn">Adicionar Item</button>: Botão que, quando clicado, adiciona o item digitado à lista.
-    <ul id="shoppingList"></ul>: Lista não ordenada onde os itens adicionados serão exibidos.
+1. **Responsividade**: Certifique-se de que o layout seja responsivo, adaptando-se bem a diferentes tamanhos de tela, desde desktops até dispositivos móveis.
+2. **Acessibilidade**: Verifique se o site é acessível, com o uso de atributos `alt` nas imagens, contraste adequado de cores e navegação fácil via teclado.
+3. **Performance**: Otimize as imagens e o código para garantir que o site carregue rapidamente, especialmente em dispositivos móveis.
+4. **Usabilidade**: Certifique-se de que a navegação seja intuitiva e que os elementos interativos, como botões e links, sejam facilmente clicáveis.
+5. **Consistência visual**: Garanta que todos os elementos sigam a mesma paleta de cores, tipografia e estilo, conforme o design fornecido no Figma.
 
-```
-2. CSS (styles.css)
-O CSS é opcional e utilizado para estilizar a aplicação, tornando-a visualmente mais agradável.
+---
 
-```css
-  body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-}
+## Sugestões de JavaScript para o Projeto
 
-div {
-    background-color: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 300px;
-    text-align: center;
-}
+1. **Interatividade com Botões (Menu ou Ações)**
+   - Adicionar funcionalidade de mostrar e esconder elementos de navegação ao clicar em um botão.
 
-h1 {
-    margin-bottom: 20px;
-}
+2. **Scroll Suave (Smooth Scroll)**
+   - Implementar animação de rolagem suave para navegação entre seções da página.
 
-input {
-    width: calc(100% - 22px);
-    padding: 10px;
-    margin-bottom: 10px;
-}
+3. **Validação de Formulário com Feedback Visual**
+   - Validar os campos de um formulário em tempo real, mostrando mensagens de erro quando necessário.
 
-button {
-    padding: 10px;
-    background-color: #007BFF;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    width: 100%;
-}
+4. **Animações com Scroll (Aparecimento de Elementos ao Rolar a Página)**
+   - Fazer elementos da página aparecerem com animações quando o usuário rolar até eles.
 
-button:hover {
-    background-color: #0056b3;
-}
+5. **Controle de Tema (Modo Claro/Oscuro)**
+   - Permitir que o usuário alterne entre modo claro e escuro no site.
 
-ul {
-    list-style-type: none;
-    padding: 0;
-}
+6. **Carrossel de Imagens (Galeria de Imagens)**
+   - Criar um carrossel de imagens com navegação para exibir várias imagens de forma interativa.
 
-li {
-    padding: 10px;
-    background-color: #f9f9f9;
-    border-bottom: 1px solid #ddd;
-}
-```
-    
-
-3. JavaScript (script.js)
-O JavaScript contém a lógica para adicionar e exibir itens na lista de compras
-
-```javascript
-    document.addEventListener('DOMContentLoaded', () => {
-    const itemInput = document.getElementById('itemInput');
-    const addItemBtn = document.getElementById('addItemBtn');
-    const shoppingList = document.getElementById('shoppingList');
-
-    let items = [];
-
-    addItemBtn.addEventListener('click', addItem);
-
-    function addItem() {
-        const itemText = itemInput.value.trim();
-        if (itemText) {
-            items.push(itemText);
-            itemInput.value = '';
-            renderItems();
-        }
-    }
-
-    function renderItems() {
-        shoppingList.innerHTML = '';
-        items.forEach(item => {
-            const li = document.createElement('li');
-            li.textContent = item;
-            shoppingList.appendChild(li);
-        });
-    }
-});
-```
-
-# Explicação do Código JavaScript
-
-```javascript
-    document.addEventListener('DOMContentLoaded', () => { ... });: Garante que o código JavaScript será executado apenas após o carregamento completo do DOM.
-Seleção de Elementos:
-
-const itemInput = document.getElementById('itemInput');: Seleciona o campo de entrada de texto.
-const addItemBtn = document.getElementById('addItemBtn');: Seleciona o botão de adicionar item.
-const shoppingList = document.getElementById('shoppingList');: Seleciona a lista onde os itens serão exibidos.
-Array de Itens:
-
-let items = [];: Inicializa um array vazio para armazenar os itens da lista de compras.
-Adicionar Item:
-
-addItemBtn.addEventListener('click', addItem);: Adiciona um evento de clique ao botão que chama a função addItem.
-function addItem() { ... }: Função que adiciona um novo item ao array items.
-const itemText = itemInput.value.trim();: Obtém o texto do campo de entrada, removendo espaços em branco no início e no fim.
-if (itemText) { ... }: Verifica se o campo de entrada não está vazio.
-items.push(itemText);: Adiciona o item ao array.
-itemInput.value = '';: Limpa o campo de entrada.
-renderItems();: Chama a função para atualizar a exibição dos itens.
-Renderizar Itens:
-
-function renderItems() { ... }: Função que exibe os itens na lista.
-shoppingList.innerHTML = '';: Limpa a lista atual.
-items.forEach(item => { ... });: Itera sobre o array items.
-const li = document.createElement('li');: Cria um novo elemento de lista <li>.
-li.textContent = item;: Define o texto do elemento <li>.
-shoppingList.appendChild(li);: Adiciona o elemento <li> à lista.
-```
+---
 
 ## Conclusão
-Este desafio ajuda a praticar a manipulação de arrays e elementos DOM básicos com JavaScript, além de reforçar conhecimentos em HTML e CSS. É um exemplo simples mas eficaz de como criar uma aplicação web interativa usando tecnologias front-end.
+Este desafio ajuda a reforçar conhecimentos em HTML e CSS. É um exemplo simples mas eficaz de como criar uma aplicação web interativa usando tecnologias front-end.
 
 ## Autor
 

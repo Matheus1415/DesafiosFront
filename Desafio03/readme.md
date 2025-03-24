@@ -1,5 +1,5 @@
 
-# Documentação: Desafio Lista de Compras
+# Documentação: Desafio  landing page ArchiWeb
 
 Este documento descreve a implementação de uma aplicação web simples para criar uma single page.
 
